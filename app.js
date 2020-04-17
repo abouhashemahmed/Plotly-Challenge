@@ -1,6 +1,6 @@
 function buildMetadata(sample) {
 
-  d3.json(`metadata/$(sample)`).then(data) => {
+  d3.json(`/metadata/${sample}`).then((data) => {
   // Use `d3.json` to fetch the metadata for a sample
    var PANEL = d3.select("#sample-metadata");
 
@@ -28,10 +28,10 @@ function buildCharts(sample) {
     const sample_values = data.sample_values;
     console.log(otu_ids, otu_labels, sample_values);
     
-  // Build a Pie Chart
+  // Build a Bubble Chart
     var bubbleLayout = {
-      margin: { t: 0},
-      hovermode: "closest"
+      margin: { t: 0 },
+      hovermode: "closest",
       xaxis: {title: "OTU ID"}
     };
     var bubbleData = [
